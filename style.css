@@ -57,3 +57,43 @@ body {
     border-color: transparent;
     margin: -40px 0 35px;
 }
+
+.game-box h4 {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.game-box h4 b {
+    font-weight: 600;
+}
+
+.game-box .guesses-text b {
+    color: #ff0000;
+}
+
+.game-box .keyboard {
+    display: flex;
+    gap: 5px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard button {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    padding: 7px;
+    background: #5e63ba;
+    border-radius: 4px;
+    text-transform: uppercase;
+    width: calc(100% / 9 - 5px);
+}
+
+.keyboard button:hover {
+    background: #8286c9;
+}
