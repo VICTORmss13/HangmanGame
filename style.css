@@ -6,3 +6,22 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #5e63ba;
+}
+
+.container {
+    width: 850px;
+    background: #c7c7c7;
+    display: flex;
+    gap: 70px;
+    align-items: flex-end;
+    padding: 60px 40px;
+    border-radius: 10px;
+}
+
