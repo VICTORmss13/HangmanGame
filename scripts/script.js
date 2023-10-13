@@ -1,3 +1,4 @@
+const hangmanImage = document.querySelector(".hangman-box img");
 const wordDisplay = document.querySelector(".word-display");
 const guessesText = document.querySelector(".guesses-text b");
 const keyboardDiv = document.querySelector(".keyboard");
@@ -30,8 +31,10 @@ const initGame = (button, clickedLetter) => {
         })
         // console.log(clickedLetter, " is on the word");
     } else {
+        // If clicked letter doesn't exist then update the wrongGuessCount and hangman image
         // console.log(clickedLetter, " is not on the word");
         wrongGuessCount++;
+        hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
     }
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 }
