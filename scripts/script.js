@@ -19,7 +19,7 @@ const getRandomWord = () => {
 }
 
 const initGame = (button, clickedLetter) => {
-    // Checking if clickedLetter is exist on the currentWord
+    // Checking if clickedLetter exists on the currentWord
     // console.log(button, clickedLetter);
     if(currentWord.includes(clickedLetter)) {
         // Showing all correct letters on the word displayed
@@ -36,6 +36,8 @@ const initGame = (button, clickedLetter) => {
         wrongGuessCount++;
         hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
     }
+
+    button.disabled = true;
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 }
 
