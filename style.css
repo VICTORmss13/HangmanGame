@@ -124,9 +124,8 @@ body {
 }
 
 .game-modal.show {
-    opacity: 0;
-    pointer-events: none;
-    z-index: 999;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .game-modal .content {
