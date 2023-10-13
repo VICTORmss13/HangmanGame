@@ -19,9 +19,16 @@ const initGame = (button, clickedLetter) => {
     // Checking if clickedLetter is exist on the currentWord
     // console.log(button, clickedLetter);
     if(currentWord.includes(clickedLetter)) {
-        console.log(clickedLetter, " is on the word");
+        // Showing all correct letters on the word displayed
+        [...currentWord].forEach((letter, index) => {
+            if(letter === clickedLetter) {
+                wordDisplay.querySelectorAll("li")[index].innerText = letter;
+                wordDisplay.querySelectorAll("li")[index].classList.add("guessed");
+            }
+        })
+        // console.log(clickedLetter, " is on the word");
     } else {
-        console.log(clickedLetter, " is not on the word");
+        // console.log(clickedLetter, " is not on the word");
     }
     
 }
