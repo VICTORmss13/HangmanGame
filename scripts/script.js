@@ -1,6 +1,13 @@
+const wordDisplay = document.querySelector(".word-display")
 const keyboardDiv = document.querySelector(".keyboard");
 
 const getRandomWord = () => {
+    // Selecting a random word and hint from the wordList
+    const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    // console.log(word, "=", hint);
+    console.log(word);
+    document.querySelector(".hint-text b").innerText = hint;
+    wordDisplay.innerHTML = word.split("").map(() => '<li class="letter"></li>').join("");
     
 }
 
@@ -11,5 +18,4 @@ for (let i = 97; i <= 122; i++) {
     keyboardDiv.appendChild(button);
 }
 
-/* For some reason I couldn`t make this script work and the buttons were not created. 
-TODO: try to discover why and fix this*/
+getRandomWord();
