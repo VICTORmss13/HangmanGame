@@ -3,19 +3,30 @@ const wordDisplay = document.querySelector(".word-display");
 const guessesText = document.querySelector(".guesses-text b");
 const keyboardDiv = document.querySelector(".keyboard");
 const gameModal = document.querySelector(".game-modal");
+const playAgainBtn = document.querySelector(".play-again");
 
-let currentWord, correctLetters = [], wrongGuessCount = 0;
-const maxGuesses  = 6;
+let currentWord, correctLetters, wrongGuessCount;
+const maxGuesses = 6;
 
+const resetGame = () => {
+    // Reseting all game variables and UI elements
+    correctLetters = [];
+    wrongGuessCount = 0;
+    hangmanImage.src = `images/hangman-${wrongGuessCount}.svg`;
+    guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+    keyboardDiv.querySelectorAll("button").forEach(btn => btn.disabled = false);
+    wordDisplay.innerHTML = currentWord.split("").map(() => '<li class="letter"></li>').join("");
+    gameModal.classList.remove("show");
+}
 
 const getRandomWord = () => {
     // Selecting a random word and hint from the wordList
     const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
     currentWord = word;
     // console.log(word, "=", hint);
-    console.log(word);
+    // console.log(word);
     document.querySelector(".hint-text b").innerText = hint;
-    wordDisplay.innerHTML = word.split("").map(() => '<li class="letter"></li>').join("");
+    resetGame();
     
 }
 
@@ -67,3 +78,4 @@ for (let i = 97; i <= 122; i++) {
 }
 
 getRandomWord();
+playAgainBtn.addEventListener("click", getRandomWord);
