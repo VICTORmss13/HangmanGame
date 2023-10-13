@@ -1,7 +1,9 @@
-const wordDisplay = document.querySelector(".word-display")
+const wordDisplay = document.querySelector(".word-display");
+const guessesText = document.querySelector(".guesses-text b");
 const keyboardDiv = document.querySelector(".keyboard");
 
-let currentWord;
+let currentWord; wrongGuessCount = 0;
+const maxGuesses  = 6;
 
 
 const getRandomWord = () => {
@@ -29,8 +31,9 @@ const initGame = (button, clickedLetter) => {
         // console.log(clickedLetter, " is on the word");
     } else {
         // console.log(clickedLetter, " is not on the word");
+        wrongGuessCount++;
     }
-    
+    guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
 }
 
 // Creating keyboard buttons and adding event listeners
