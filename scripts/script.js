@@ -7,4 +7,5 @@ for (let i = 97; i <= 122; i++) {
     keyboardDiv.appendChild(button);
 }
 
-
+/* For some reason I couldn`t make this script work and the buttons were not created. 
+TODO: try to discover why and fix this*/
