@@ -1,9 +1,13 @@
 const wordDisplay = document.querySelector(".word-display")
 const keyboardDiv = document.querySelector(".keyboard");
 
+let currentWord;
+
+
 const getRandomWord = () => {
     // Selecting a random word and hint from the wordList
     const { word, hint } = wordList[Math.floor(Math.random() * wordList.length)];
+    currentWord = word;
     // console.log(word, "=", hint);
     console.log(word);
     document.querySelector(".hint-text b").innerText = hint;
@@ -11,11 +15,23 @@ const getRandomWord = () => {
     
 }
 
-// Creating keyboard buttons
+const initGame = (button, clickedLetter) => {
+    // Checking if clickedLetter is exist on the currentWord
+    // console.log(button, clickedLetter);
+    if(currentWord.includes(clickedLetter)) {
+        console.log(clickedLetter, " is on the word");
+    } else {
+        console.log(clickedLetter, " is not on the word");
+    }
+    
+}
+
+// Creating keyboard buttons and adding event listeners
 for (let i = 97; i <= 122; i++) {
     const button = document.createElement("button");
     button.innerText = String.fromCharCode(i);  
     keyboardDiv.appendChild(button);
+    button.addEventListener("click", e => initGame(e.target, String.fromCharCode(i)));
 }
 
 getRandomWord();
